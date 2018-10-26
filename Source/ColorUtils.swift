@@ -26,34 +26,34 @@ func hsv2rgb(_ hsv: HSV) -> RGB {
     let q = hsv.brightness * (1 - f * hsv.saturation)
     let t = hsv.brightness * (1 - (1 - f) * hsv.saturation)
     switch i % 6 {
-        case 0:
-            r = hsv.brightness
-            g = t
-            b = p
-        case 1:
-            r = q
-            g = hsv.brightness
-            b = p
-        case 2:
-            r = p
-            g = hsv.brightness
-            b = t
-        case 3:
-            r = p
-            g = q
-            b = hsv.brightness
-        case 4:
-            r = t
-            g = p
-            b = hsv.brightness
-        case 5:
-            r = hsv.brightness
-            g = p
-            b = q
-        default:
-            r = hsv.brightness
-            g = t
-            b = p
+    case 0:
+        r = hsv.brightness
+        g = t
+        b = p
+    case 1:
+        r = q
+        g = hsv.brightness
+        b = p
+    case 2:
+        r = p
+        g = hsv.brightness
+        b = t
+    case 3:
+        r = p
+        g = q
+        b = hsv.brightness
+    case 4:
+        r = t
+        g = p
+        b = hsv.brightness
+    case 5:
+        r = hsv.brightness
+        g = p
+        b = q
+    default:
+        r = hsv.brightness
+        g = t
+        b = p
     }
 
     rgb.red = r
@@ -79,7 +79,7 @@ func rgb2hsv(_ rgb: RGB) -> HSV {
 
     let d: CGFloat = maxV - minV
 
-    s = maxV == 0 ? 0 : d / minV
+    s = maxV == 0 ? 0 : d / maxV
 
     if maxV == minV {
         h = 0
